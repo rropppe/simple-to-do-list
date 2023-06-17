@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>editnote</title>
+  </head>
+  <body>
+    <h1 align="center">Edit note.</h1>
+    <h2 align="center">Don't worry! It's just a mistake.</h2>
+    <form action="{{ url_for('edit', index=index) }}" method="post">
+      <input type="text" name="todo" value="{{ todo['task'] }}">
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>

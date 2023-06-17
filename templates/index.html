@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ropenotes</title>
+  </head>
+  <body>
+    <h1 align="center">Hello! It's flask notes app by rropppe.</h1>
+    <H2 align="center">If you are afraid to forget something, then write it down here.</H2>
+        <form action="{{ url_for('add') }}" method="post">
+      <input type="text" name="todo">
+      <button type="submit">Add note</button>
+    </form>
+
+    <ul>
+      {% for todo in todos %}
+        <li>
+          <span {% if todo['done'] %}style="text-decoration: line-through"{% endif %}>{{ todo['task'] }}</span>
+          <a href="{{ url_for('edit', index=loop.index0) }}">edit</a>
+          <a href="{{ url_for('delete', index=loop.index0) }}">delete</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </body>
+</html>
